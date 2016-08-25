@@ -164,7 +164,7 @@
             </objects>
             <point key="canvasLocation" x="1225.5" y="418.5"/>
         </scene>
-        <!--Add View Controller-->
+        <!--添加联系人-->
         <scene sceneID="CCn-ca-eHv">
             <objects>
                 <viewController id="fbP-69-HjT" customClass="GBHAddViewController" sceneMemberID="viewController">
@@ -208,7 +208,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xqb-Q9-N8L"/>
+                    <navigationItem key="navigationItem" title="添加联系人" id="xqb-Q9-N8L"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="addBtn" destination="R5m-wz-Ds7" id="0gD-2x-eFR"/>
@@ -219,6 +219,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WBV-j9-aFs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1679.5" y="418.5"/>
+        </scene>
+        <!--Edit View Controller-->
+        <scene sceneID="7Ro-lf-Z8M">
+            <objects>
+                <viewController storyboardIdentifier="edit" id="gOE-zd-Bic" customClass="GBHEditViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Isq-JL-nxZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="aNC-OQ-mUH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3KI-Yv-1GT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="姓名:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCF-Em-IWQ">
+                                <rect key="frame" x="36" y="147" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="电话:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1h-4W-sfF">
+                                <rect key="frame" x="36" y="204" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入电话" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KOg-fF-6zp">
+                                <rect key="frame" x="94" y="200" width="244" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcd-4V-xse">
+                                <rect key="frame" x="164" y="319" width="46" height="30"/>
+                                <state key="normal" title="保存"/>
+                                <connections>
+                                    <action selector="save:" destination="gOE-zd-Bic" eventType="touchUpInside" id="Iug-54-AI9"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入姓名" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gm0-0e-eXT">
+                                <rect key="frame" x="94" y="138" width="244" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="nameField" destination="gm0-0e-eXT" id="68V-aX-Fsw"/>
+                        <outlet property="phoneField" destination="KOg-fF-6zp" id="Zpq-vB-2p5"/>
+                        <outlet property="saveBtn" destination="Zcd-4V-xse" id="Db4-Ni-SjP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BYJ-OX-jal" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2118.5" y="418.5"/>
         </scene>
     </scenes>
 </document>

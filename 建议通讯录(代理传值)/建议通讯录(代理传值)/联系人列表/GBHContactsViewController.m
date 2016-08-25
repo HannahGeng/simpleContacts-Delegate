@@ -9,6 +9,7 @@
 #import "GBHContactsViewController.h"
 #import "GBHContactModel.h"
 #import "GBHAddViewController.h"
+#import "GBHEditViewController.h"
 
 @interface GBHContactsViewController ()<GBHAddViewControllerDelegate>
 
@@ -34,6 +35,7 @@
     GBHAddViewController * add = segue.destinationViewController;
     
     add.delegate = self;
+    
 }
 
 #pragma mark - Table view data source
@@ -86,5 +88,24 @@
     
     self.tableView.tableFooterView = [[UIView alloc] init];
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIStoryboard * sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    GBHEditViewController * edit = [sb instantiateViewControllerWithIdentifier:@"edit"];
+    
+    edit.c = self.contacts[indexPath.row];
+    
+    edit.block = ^(){
+        
+        //刷新表格
+        [self.tableView reloadData];
+    };
+    
+    //跳转至编辑界面
+    [self.navigationController pushViewController:edit animated:YES];
+}
+
 
 @end

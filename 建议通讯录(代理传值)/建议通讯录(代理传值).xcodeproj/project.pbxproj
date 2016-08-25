@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D39C4AD1D6E8164000CD00E /* GBHAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D39C4AC1D6E8164000CD00E /* GBHAddViewController.m */; };
 		3D39C4B01D6E8940000CD00E /* GBHContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D39C4AF1D6E8940000CD00E /* GBHContactModel.m */; };
+		3D39C4B41D6E8EC6000CD00E /* GBHEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D39C4B31D6E8EC6000CD00E /* GBHEditViewController.m */; };
 		3D61AF6E1D6D80FD00A53CE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D61AF6D1D6D80FD00A53CE3 /* main.m */; };
 		3D61AF711D6D80FD00A53CE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D61AF701D6D80FD00A53CE3 /* AppDelegate.m */; };
 		3D61AF771D6D80FD00A53CE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D61AF751D6D80FD00A53CE3 /* Main.storyboard */; };
@@ -42,6 +43,8 @@
 		3D39C4AC1D6E8164000CD00E /* GBHAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBHAddViewController.m; sourceTree = "<group>"; };
 		3D39C4AE1D6E8940000CD00E /* GBHContactModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBHContactModel.h; sourceTree = "<group>"; };
 		3D39C4AF1D6E8940000CD00E /* GBHContactModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBHContactModel.m; sourceTree = "<group>"; };
+		3D39C4B21D6E8EC6000CD00E /* GBHEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBHEditViewController.h; sourceTree = "<group>"; };
+		3D39C4B31D6E8EC6000CD00E /* GBHEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBHEditViewController.m; sourceTree = "<group>"; };
 		3D61AF691D6D80FD00A53CE3 /* 建议通讯录(代理传值).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "建议通讯录(代理传值).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D61AF6D1D6D80FD00A53CE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3D61AF6F1D6D80FD00A53CE3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -87,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D39C4B11D6E8EB8000CD00E /* 编辑界面 */ = {
+			isa = PBXGroup;
+			children = (
+				3D39C4B21D6E8EC6000CD00E /* GBHEditViewController.h */,
+				3D39C4B31D6E8EC6000CD00E /* GBHEditViewController.m */,
+			);
+			path = "编辑界面";
+			sourceTree = "<group>";
+		};
 		3D61AF601D6D80FD00A53CE3 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +125,7 @@
 				3D61AF9F1D6D83E700A53CE3 /* 登录界面 */,
 				3D61AFA01D6D83E700A53CE3 /* 联系人列表 */,
 				3D61AFA11D6D83E700A53CE3 /* 添加列表 */,
+				3D39C4B11D6E8EB8000CD00E /* 编辑界面 */,
 				3D61AF6F1D6D80FD00A53CE3 /* AppDelegate.h */,
 				3D61AF701D6D80FD00A53CE3 /* AppDelegate.m */,
 				3D61AF751D6D80FD00A53CE3 /* Main.storyboard */,
@@ -311,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D39C4AD1D6E8164000CD00E /* GBHAddViewController.m in Sources */,
+				3D39C4B41D6E8EC6000CD00E /* GBHEditViewController.m in Sources */,
 				3D61AF711D6D80FD00A53CE3 /* AppDelegate.m in Sources */,
 				3D39C4B01D6E8940000CD00E /* GBHContactModel.m in Sources */,
 				3D61AFA71D6D840000A53CE3 /* GBHContactsViewController.m in Sources */,

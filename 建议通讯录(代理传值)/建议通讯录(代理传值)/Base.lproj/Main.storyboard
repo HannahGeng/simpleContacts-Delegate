@@ -167,7 +167,7 @@
         <!--添加联系人-->
         <scene sceneID="CCn-ca-eHv">
             <objects>
-                <viewController id="fbP-69-HjT" customClass="GBHAddViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="add" id="fbP-69-HjT" customClass="GBHAddViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FdV-tN-EYF"/>
                         <viewControllerLayoutGuide type="bottom" id="Nxd-2Q-R6a"/>

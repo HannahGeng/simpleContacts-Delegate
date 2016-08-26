@@ -37,6 +37,13 @@
     return _contacts;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.tableView.tableFooterView = [[UIView alloc] init];
+}
+
 //跳转之前调用
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -119,5 +126,29 @@
     [self.navigationController pushViewController:edit animated:YES];
 }
 
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    UITableViewRowAction *action = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"增加" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        // 点击增加的时候调用
+        
+        UIStoryboard * sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        GBHAddViewController * add = [sb instantiateViewControllerWithIdentifier:@"add"];
+        
+        [self.navigationController pushViewController:add animated:YES];
+        
+    }];
+    
+    action.backgroundColor = [UIColor greenColor];
+    UITableViewRowAction *action1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        
+        // 点击增加的时候调用
+        [self.contacts removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }];
+    
+    return @[action,action1];
+}
 
 @end

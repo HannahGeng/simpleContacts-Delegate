@@ -34,6 +34,25 @@
     
     [_passwordField addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];
     
+    //取出之前存储的密码
+    _rmbPassSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:@"rmbSwitch"];
+    
+    _autoLoginSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:@"autoSwitch"];
+    
+    _accountField.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"account"];
+
+    if (_rmbPassSwitch.on == YES) {
+        
+        _passwordField.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
+
+    }
+    
+    if (_autoLoginSwitch.on == YES) {
+        
+        [self login:nil];
+    }
+    
+    
     [self textChange];
 }
 
@@ -56,6 +75,18 @@
 - (IBAction)login:(id)sender {
 
     if ([_accountField.text  isEqual: @"gbh"] && [_passwordField.text  isEqual: @"123"]) {
+        
+        //存储用户名和密码
+        [[NSUserDefaults standardUserDefaults] setObject:_accountField.text forKey:@"account"];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:_passwordField.text forKey:@"password"];
+        
+        [[NSUserDefaults standardUserDefaults] setBool:_rmbPassSwitch.on forKey:@"rmbSwitch"];
+        
+        [[NSUserDefaults standardUserDefaults] setBool:_autoLoginSwitch.on forKey:@"autoSwitch"];
+        
+        [[NSUserDefaults standardUserDefaults] synchronize];
+            
         
         [self performSegueWithIdentifier:@"login2contact" sender:nil];
         

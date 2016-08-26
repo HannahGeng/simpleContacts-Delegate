@@ -11,7 +11,9 @@
 #import "GBHAddViewController.h"
 #import "GBHEditViewController.h"
 
-@interface GBHContactsViewController ()<GBHAddViewControllerDelegate>
+#define FilePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"contact.data"]
+
+@interface GBHContactsViewController ()<UIActionSheetDelegate>
 
 @property (nonatomic,strong) NSMutableArray * contacts;
 
@@ -22,8 +24,14 @@
 - (NSMutableArray *)contacts
 {
     if(_contacts == nil){
-        
-        _contacts = [NSMutableArray array];
+    
+        //读取数据
+        _contacts = [NSKeyedUnarchiver unarchiveObjectWithFile:FilePath];
+
+        if (_contacts == nil) {
+            
+            _contacts = [NSMutableArray array];
+        }
     }
     
     return _contacts;
@@ -34,7 +42,17 @@
 {
     GBHAddViewController * add = segue.destinationViewController;
     
-    add.delegate = self;
+    add.block = ^(GBHContactModel * contact){
+        
+        //联系人添加到数组
+        [self.contacts addObject:contact];
+        
+        //刷新表格
+        [self.tableView reloadData];
+        
+        //归档
+        [NSKeyedArchiver archiveRootObject:self.contacts toFile:FilePath];
+    };
     
 }
 
@@ -42,7 +60,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return _contacts.count;
+    return self.contacts.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -80,15 +98,6 @@
     
 }
 
-- (void)addViewClickBtnWithController:(GBHAddViewController *)addViewcontroller withModel:(GBHContactModel *)contact
-{
-    [self.contacts addObject:contact];
-    
-    [self.tableView reloadData];
-    
-    self.tableView.tableFooterView = [[UIView alloc] init];
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UIStoryboard * sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -101,6 +110,9 @@
         
         //刷新表格
         [self.tableView reloadData];
+        
+        //保存联系人，注意：如果归档数组，底层会遍历数组元素一个一个归档
+        [NSKeyedArchiver archiveRootObject:self.contacts toFile:FilePath];
     };
     
     //跳转至编辑界面

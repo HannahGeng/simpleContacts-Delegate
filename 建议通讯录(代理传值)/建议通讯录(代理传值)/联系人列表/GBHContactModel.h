@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GBHContactModel : NSObject
+@interface GBHContactModel : NSObject<NSCoding>
 
 /** name */
 @property (nonatomic,strong) NSString * name;

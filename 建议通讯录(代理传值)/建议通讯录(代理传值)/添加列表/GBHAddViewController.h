@@ -10,17 +10,11 @@
 
 @class GBHContactModel,GBHAddViewController;
 
-@protocol GBHAddViewControllerDelegate <NSObject>
-
-@optional
-
-- (void)addViewClickBtnWithController:(GBHAddViewController *)addViewcontroller withModel:(GBHContactModel *)contact;
-
-@end
+typedef void(^ AddViewControllerBlock)(GBHContactModel * contact);
 
 @interface GBHAddViewController : UIViewController
 
-/** delegate */
-@property (nonatomic,strong) id <GBHAddViewControllerDelegate> delegate;
+/** block */
+@property (nonatomic,strong) AddViewControllerBlock block;
 
 @end

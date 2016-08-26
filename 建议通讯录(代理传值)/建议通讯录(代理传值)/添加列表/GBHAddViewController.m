@@ -39,8 +39,10 @@
 - (IBAction)add:(id)sender {
     
     GBHContactModel * c = [GBHContactModel contactWithName:_nameField.text phoneNum:_phoneField.text];
-    
-    [_delegate addViewClickBtnWithController:self withModel:c];
+  
+    if (_block) {
+        _block(c);
+    }
     
     [self.navigationController popViewControllerAnimated:YES];
 }
